@@ -3,6 +3,7 @@ import ReiAyanami from "../assets/rei_ayanami_headphone.jpg";
 import pfp from "../assets/pfp.png";
 import logo from "../assets/margatroid icon.png"
 import { AppsListRegular, BoardRegular, DashboardRegular, PeopleTeamRegular, SettingsCogMultipleFilled, SettingsRegular } from "@fluentui/react-icons";
+
 function DashBoard(){
     return(
         <div className="container" style={{float:"left", minWidth:"15rem", maxWidth:"15rem", height:"100vh", backgroundColor:"rgb(52, 80, 107)", padding:"0rem"}}>
