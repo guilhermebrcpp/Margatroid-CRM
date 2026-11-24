@@ -68,6 +68,29 @@ async function teste_api(){
 
 import { ArrowSprintRegular } from '@fluentui/react-icons';
 
+async function return_all_projects_tags(){
+    const url = "https://jaga-crm-back.vercel.app/api/projeto"
+    const info = await fetch(url)
+    const json = await info.json()
+    const table_lista = [];
+    
+    for(let i = 0; i < json.length; i++){
+        const url_client = "https://jaga-crm-back.vercel.app/api/cliente/" + json[i]["cnpj_cliente"];
+        const info_client = await fetch(url_client)
+        const json_client = await info_client.json()
+        const client_name = json_client[0]["nome"]
+        
+        table_lista.push(
+            <td>{json[i]["titulo"]}</td>,
+            <td>{client_name}</td>,
+            <td>{json[i]["tipo"]}</td>,
+            <td>prazo do mal</td>,
+            <td>{json[i]["status"]}</td>
+        )
+    }
+    return table_lista;
+}
+
 function HomePage(){
     const [dataLine, setDataLine] = useState({
         labels: ['teste', "teste", "teste", "teste"],
@@ -81,6 +104,9 @@ function HomePage(){
             },
         ],
         });
+
+
+    const [projects_table, setProjectsTable] = useState<React.ReactNode>(null);
 
     useEffect(() => {
         async function merda(){
@@ -102,7 +128,10 @@ function HomePage(){
             })
         }
 
-        merda()
+        merda();
+        setProjectsTable(
+        return_all_projects_tags()
+        );
     }, []);
 
     const {contacts} = useContacts();
@@ -129,6 +158,19 @@ function HomePage(){
                         <div className="col-8">
                             <div style={{border:"1px solid grey", borderRadius:"0.5rem", padding:"1rem", boxShadow:"4px 4px 10px grey"}}>
                                 <h3 style={{textAlign:"left", marginBottom:"1rem"}}>Projetos em andamento</h3>
+                                <table>
+                                    <tr>
+                                        <th style={{minWidth:"10rem"}}>Projeto</th>
+                                        <th style={{minWidth:"10rem"}}>Cliente</th>
+                                        <th style={{minWidth:"10rem"}}>Tipo</th>
+                                        <th style={{minWidth:"10rem"}}>Prazo</th>
+                                        <th style={{minWidth:"10rem"}}>Status</th>
+                                    </tr>
+                                    <tr>
+                                        {projects_table}
+                                    </tr>
+                                </table>
+                                {/*
                                 <div style={{display:"flex", justifyContent:"flex-start"}}>
                                     <div style={{display:"inline-block"}}>
                                         <p style={{backgroundColor: "rgb(124, 154, 202)", padding:"0.5rem", paddingRight:"8rem", marginRight:"1px"}}>Projeto</p>
@@ -179,6 +221,7 @@ function HomePage(){
                                         <p style={{paddingLeft:"0.5rem"}}>Não iniciado</p>
                                     </div>
                                 </div>
+                                */}
                             </div>
                         </div>
                         <div className="col-4">

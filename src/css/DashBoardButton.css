@@ -31,3 +31,13 @@
 .chamado_button:hover{
     background-color: grey;
 }
+
+th{
+    background-color: rgb(124, 154, 202);
+    border: 1px, solid, white;
+    padding: 0.5rem;
+    font-weight: normal;
+}
+td{
+    padding-left: 0.5rem;
+}
