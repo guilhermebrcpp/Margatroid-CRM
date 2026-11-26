@@ -46,6 +46,8 @@ td{
 .chamado_table_row{
     border-bottom: 1px solid lightgray;
     border-top: 1px solid lightgray;
+    border-left: 1px solid lightgray;
+    border-right: 1px solid lightgray;
     padding-bottom: 6.25rem;
     padding-top: 0.25rem;
 }

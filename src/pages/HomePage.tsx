@@ -81,11 +81,13 @@ async function return_all_projects_tags(){
         const client_name = json_client[0]["nome"]
         
         table_lista.push(
-            <td>{json[i]["titulo"]}</td>,
-            <td>{client_name}</td>,
-            <td>{json[i]["tipo"]}</td>,
-            <td>prazo do mal</td>,
-            <td>{json[i]["status"]}</td>
+            <tr>
+                <td>{json[i]["titulo"]}</td>
+                <td>{client_name}</td>
+                <td>a definir</td>
+                <td>a definir</td>
+                <td>a definir</td>
+            </tr>
         )
     }
     return table_lista;
@@ -157,7 +159,7 @@ function HomePage(){
                     <div className="row">
                         <div className="col-8">
                             <div style={{border:"1px solid grey", borderRadius:"0.5rem", padding:"1rem", boxShadow:"4px 4px 10px grey"}}>
-                                <h3 style={{textAlign:"left", marginBottom:"1rem"}}>Projetos em andamento</h3>
+                                <h3 style={{textAlign:"left", marginBottom:"1rem"}}>Projetos recentes</h3>
                                 <table>
                                     <tr>
                                         <th style={{minWidth:"10rem"}}>Projeto</th>
@@ -166,9 +168,7 @@ function HomePage(){
                                         <th style={{minWidth:"10rem"}}>Prazo</th>
                                         <th style={{minWidth:"10rem"}}>Status</th>
                                     </tr>
-                                    <tr>
-                                        {projects_table}
-                                    </tr>
+                                    {projects_table}
                                 </table>
                             </div>
                         </div>

@@ -27,10 +27,10 @@ async function return_all_chamados_tags(chamados_json: any){
         
         table_lista.push(
             <tr className="chamado_table_row">
-                <td className="chamado_table_cell chamado_table_cell_title">{chamados_json[i]["titulo"]}</td>
-                <td className="chamado_table_cell">{chamados_json[i]["descricao"]}</td>
-                <td className="chamado_table_cell">{client_name}</td>
-                <td className="chamado_table_cell">{formatDate(new Date(chamados_json[0]["created_at"]))}</td>
+                <td className="chamado_table_cell chamado_table_cell_title" style={{minWidth:"15rem"}}>{chamados_json[i]["titulo"]}</td>
+                <td className="chamado_table_cell" style={{minWidth:"65rem"}}>{chamados_json[i]["descricao"]}</td>
+                <td className="chamado_table_cell" style={{minWidth:"13rem"}}>{client_name}</td>
+                <td className="chamado_table_cell" style={{minWidth:"6.5rem"}}>{formatDate(new Date(chamados_json[0]["created_at"]))}</td>
             </tr>
         )
     }
@@ -77,31 +77,42 @@ function Chamados() {
                     <h3>Leads recentes</h3>
                     <div style={{display:"flex"}}>
                         <div style={{display:"block"}}>
-                            <div style={{display:"flex", marginRight:"0.25rem", borderBottom:"none", padding:"0.5rem 0.75rem 0.5rem 0.75rem", border:"1px solid grey", borderRadius:"0.5rem 0.5rem 0rem 0rem", alignContent:"center", alignItems:"center"}}>
+                            <div style={{display:"flex", width:"15rem", cursor:"pointer", marginRight:"0.25rem", padding:"0.5rem 0.75rem 0.5rem 0.75rem", border:"1px solid grey", borderRadius:"0.5rem 0.5rem 0rem 0rem", alignContent:"center", alignItems:"center"}}>
                                 <p style={{display:"block", textAlign:"left", marginBottom:"0rem", marginRight:"1rem", fontWeight:"600"}}>Total</p>
                                 <p style={{display:"block", marginBottom:"0rem"}}>{chamados_json.length}</p>
                             </div>
                         </div>
                         <div style={{display:"block"}}>
-                            <div style={{display:"flex", marginRight:"0.25rem", borderBottom:"none", padding:"0.5rem 0.75rem 0.5rem 0.75rem", border:"1px solid grey", borderRadius:"0.5rem 0.5rem 0rem 0rem", alignContent:"center", alignItems:"center"}}>
+                            <div style={{display:"flex", width:"15rem", cursor:"pointer", marginRight:"0.25rem", padding:"0.5rem 0.75rem 0.5rem 0.75rem", border:"1px solid grey", borderRadius:"0.5rem 0.5rem 0rem 0rem", alignContent:"center", alignItems:"center"}}>
                                 <p style={{display:"block", textAlign:"left", marginBottom:"0rem", marginRight:"1rem", fontWeight:"600"}}>Não Tratados</p>
                                 <p style={{display:"block", marginBottom:"0rem"}}>{chamados_json.length}</p>
                             </div>
                         </div>
                         <div style={{display:"block"}}>
-                            <div style={{display:"flex", borderBottom:"none",  padding:"0.5rem 0.75rem 0.5rem 0.75rem", border:"1px solid grey", borderRadius:"0.5rem 0.5rem 0rem 0rem", alignContent:"center", alignItems:"center"}}>
+                            <div style={{display:"flex", width:"15rem", cursor:"pointer", marginRight:"0.25rem", padding:"0.5rem 0.75rem 0.5rem 0.75rem", border:"1px solid grey", borderRadius:"0.5rem 0.5rem 0rem 0rem", alignContent:"center", alignItems:"center"}}>
+                                <p style={{display:"block", textAlign:"left", marginBottom:"0rem", marginRight:"1rem", fontWeight:"600"}}>Em análise</p>
+                                <p style={{display:"block", marginBottom:"0rem"}}>0</p>
+                            </div>
+                        </div>
+                        <div style={{display:"block"}}>
+                            <div style={{display:"flex", width:"15rem", cursor:"pointer",  padding:"0.5rem 0.75rem 0.5rem 0.75rem", border:"1px solid grey", borderRadius:"0.5rem 0.5rem 0rem 0rem", alignContent:"center", alignItems:"center"}}>
                                 <p style={{display:"block", textAlign:"left", marginBottom:"0rem", marginRight:"1rem", fontWeight:"600"}}>Tratados</p>
                                 <p style={{display:"block", marginBottom:"0rem"}}>0</p>
                             </div>
                         </div>
+                        {/*<button style={{marginLeft:"auto"}}>
+                            +
+                        </button>*/}
                     </div>
                     <table>
                         <tr>
+                            {/*
                             <th style={{minWidth:"25rem", borderRadius:"0rem"}} className="chamados_table_header">Nome</th>
                             <th style={{minWidth:"50rem", borderTopRightRadius:"0rem", borderTopLeftRadius:"0rem"}} className="chamados_table_header">Descricao</th>
                             <th style={{minWidth:"15rem", borderTopRightRadius:"0rem", borderTopLeftRadius:"0rem"}} className="chamados_table_header">Cliente</th>
                             <th style={{minWidth:"10rem", borderTopLeftRadius:"0rem"}} className="chamados_table_header">Criado em</th>
-                        </tr>
+                            */}
+                            </tr>
                         {chamados_table}
                     </table>
                 </div>
