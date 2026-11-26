@@ -16,7 +16,7 @@ function DashBoard(){
                 <DashBoardButton title="DashBoard" link="/" children={<DashboardRegular className="DashBoardIcon"/>}></DashBoardButton>
                 <DashBoardButton title="Clientes" link="/clientes" children={<PeopleTeamRegular className="DashBoardIcon"/>}></DashBoardButton>
                 <DashBoardButton title="Projetos" link="/projetos" children={<SettingsCogMultipleFilled className="DashBoardIcon"/>}></DashBoardButton>
-                <DashBoardButton title="Chamados" link="/chamados" children={<AppsListRegular className="DashBoardIcon"/>}></DashBoardButton>
+                <DashBoardButton title="Lead" link="/chamados" children={<AppsListRegular className="DashBoardIcon"/>}></DashBoardButton>
                 <DashBoardButton title="Configurações" link="/" children={<SettingsRegular className="DashBoardIcon"/>}></DashBoardButton>
             </div>
         </div>

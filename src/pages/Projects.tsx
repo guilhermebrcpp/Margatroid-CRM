@@ -12,7 +12,7 @@ function Projects() {
     return(
         <div>
             <DashBoard></DashBoard>
-            <div style={{overflow:"auto", height:"100vh", border:"3px solid black", padding:"2rem", paddingTop:"1rem"}}>
+            <div style={{overflow:"auto", height:"100vh", padding:"2rem", paddingTop:"1rem"}}>
                 <div>
                     {/* TODO: CRIAR COMPONENTE PROJETO*/}
                     <div style={{border:"3px solid rgb(215, 215, 215)", borderRadius:"1rem", padding:"1rem", display:"flex", marginBottom:"1.5rem"}}>

@@ -18,10 +18,10 @@ async function return_all_chamados_tags(chamados_json: any){
         const client_name = json_client[0]["nome"]
         
         table_lista.push(
-            <tr>
-                <td>{chamados_json[i]["titulo"]}</td>
-                <td>{chamados_json[i]["descricao"]}</td>
-                <td>{client_name}</td>
+            <tr className="chamado_table_row">
+                <td className="chamado_table_cell chamado_table_cell_title">{chamados_json[i]["titulo"]}</td>
+                <td className="chamado_table_cell">{chamados_json[i]["descricao"]}</td>
+                <td className="chamado_table_cell">{client_name}</td>
             </tr>
         )
     }
@@ -57,24 +57,25 @@ function Chamados() {
             <DashBoard></DashBoard>
             <div style={{overflow:"auto", height:"100vh", padding:"2rem", paddingTop:"1rem"}}>
                 <div>
-                    <h3>Chamados</h3>
+                    <h3>Lead</h3>
                     <div style={{border:"1px solid grey", borderRadius:"0.5rem", padding:"0.25rem", display:"flex", alignItems:"center", width:"30rem"}}>
                         <SearchRegular style={{fontSize:"1.5rem"}}/>
                         <input type="text" placeholder="Pesquisar Chamado" style={{border:"none", width:"auto"}}></input>
                     </div>
                     <br></br>
-                    <div style={{display:"inline-block", border:"1px solid grey", borderRadius:"0.5rem", padding:"1rem", boxShadow:"4px 4px 10px grey"}}>
-                        <h5 style={{textAlign:"left", marginBottom:"1rem"}}>Total</h5>
-                        <h3>{chamados_json.length}</h3>
+                    
+                    <h3>Leads recentes</h3>
+                    <div style={{display:"block"}}>
+                        <div style={{display:"flex", border:"1px solid grey", borderRadius:"0.5rem", padding:"0.25rem", alignContent:"center", alignItems:"center"}}>
+                            <p style={{textAlign:"left", marginBottom:"1rem", display:"block", marginRight:"0.5rem"}}>Total</p>
+                            <p style={{display:"block"}}>{chamados_json.length}</p>
+                        </div>
                     </div>
-                    <br></br>
-                    <br></br>
-                    <h3>Chamados recentes</h3>
                     <table>
                         <tr>
-                            <th style={{minWidth:"10rem"}}>Nome</th>
-                            <th style={{minWidth:"20rem"}}>Descricao</th>
-                            <th style={{minWidth:"10rem"}}>Cliente</th>
+                            <th style={{minWidth:"25rem", borderTopRightRadius:"0rem"}} className="chamados_table_header">Nome</th>
+                            <th style={{minWidth:"60rem", borderTopRightRadius:"0rem", borderTopLeftRadius:"0rem"}} className="chamados_table_header">Descricao</th>
+                            <th style={{minWidth:"15rem", borderTopLeftRadius:"0rem"}} className="chamados_table_header">Cliente</th>
                         </tr>
                         {chamados_table}
                     </table>
