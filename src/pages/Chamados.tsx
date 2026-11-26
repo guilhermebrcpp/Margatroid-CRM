@@ -5,6 +5,14 @@ import { useContacts } from "../context/ContactsContext";
 import { useEffect, useState } from "react";
 import { SearchRegular } from "@fluentui/react-icons";
 
+const formatDate = (date: Date) => {
+    const year = date.getFullYear();
+    const month = String(date.getMonth() + 1).padStart(2, '0'); // Months are 0-indexed
+    const day = String(date.getDate()).padStart(2, '0');
+
+    return `${year}-${month}-${day}`;
+};
+
 async function return_all_chamados_tags(chamados_json: any){
     //const url = "https://jaga-crm-back.vercel.app/api/chamado"
     //const info = await fetch(url)
@@ -22,6 +30,7 @@ async function return_all_chamados_tags(chamados_json: any){
                 <td className="chamado_table_cell chamado_table_cell_title">{chamados_json[i]["titulo"]}</td>
                 <td className="chamado_table_cell">{chamados_json[i]["descricao"]}</td>
                 <td className="chamado_table_cell">{client_name}</td>
+                <td className="chamado_table_cell">{formatDate(new Date(chamados_json[0]["created_at"]))}</td>
             </tr>
         )
     }
@@ -35,6 +44,7 @@ async function return_chamados_json(){
 
     return json;
 }
+
 function Chamados() {
     const [chamados_table, setChamadosTable] = useState<React.ReactNode>(null);
     const [chamados_json, setChamadosJson] = useState<any[]>([]);
@@ -60,22 +70,37 @@ function Chamados() {
                     <h3>Lead</h3>
                     <div style={{border:"1px solid grey", borderRadius:"0.5rem", padding:"0.25rem", display:"flex", alignItems:"center", width:"30rem"}}>
                         <SearchRegular style={{fontSize:"1.5rem"}}/>
-                        <input type="text" placeholder="Pesquisar Chamado" style={{border:"none", width:"auto"}}></input>
+                        <input type="text" placeholder="Pesquisar Lead" style={{border:"none", width:"auto"}}></input>
                     </div>
                     <br></br>
                     
                     <h3>Leads recentes</h3>
-                    <div style={{display:"block"}}>
-                        <div style={{display:"flex", border:"1px solid grey", borderRadius:"0.5rem", padding:"0.25rem", alignContent:"center", alignItems:"center"}}>
-                            <p style={{textAlign:"left", marginBottom:"1rem", display:"block", marginRight:"0.5rem"}}>Total</p>
-                            <p style={{display:"block"}}>{chamados_json.length}</p>
+                    <div style={{display:"flex"}}>
+                        <div style={{display:"block"}}>
+                            <div style={{display:"flex", marginRight:"0.25rem", borderBottom:"none", padding:"0.5rem 0.75rem 0.5rem 0.75rem", border:"1px solid grey", borderRadius:"0.5rem 0.5rem 0rem 0rem", alignContent:"center", alignItems:"center"}}>
+                                <p style={{display:"block", textAlign:"left", marginBottom:"0rem", marginRight:"1rem", fontWeight:"600"}}>Total</p>
+                                <p style={{display:"block", marginBottom:"0rem"}}>{chamados_json.length}</p>
+                            </div>
+                        </div>
+                        <div style={{display:"block"}}>
+                            <div style={{display:"flex", marginRight:"0.25rem", borderBottom:"none", padding:"0.5rem 0.75rem 0.5rem 0.75rem", border:"1px solid grey", borderRadius:"0.5rem 0.5rem 0rem 0rem", alignContent:"center", alignItems:"center"}}>
+                                <p style={{display:"block", textAlign:"left", marginBottom:"0rem", marginRight:"1rem", fontWeight:"600"}}>Não Tratados</p>
+                                <p style={{display:"block", marginBottom:"0rem"}}>{chamados_json.length}</p>
+                            </div>
+                        </div>
+                        <div style={{display:"block"}}>
+                            <div style={{display:"flex", borderBottom:"none",  padding:"0.5rem 0.75rem 0.5rem 0.75rem", border:"1px solid grey", borderRadius:"0.5rem 0.5rem 0rem 0rem", alignContent:"center", alignItems:"center"}}>
+                                <p style={{display:"block", textAlign:"left", marginBottom:"0rem", marginRight:"1rem", fontWeight:"600"}}>Tratados</p>
+                                <p style={{display:"block", marginBottom:"0rem"}}>0</p>
+                            </div>
                         </div>
                     </div>
                     <table>
                         <tr>
-                            <th style={{minWidth:"25rem", borderTopRightRadius:"0rem"}} className="chamados_table_header">Nome</th>
-                            <th style={{minWidth:"60rem", borderTopRightRadius:"0rem", borderTopLeftRadius:"0rem"}} className="chamados_table_header">Descricao</th>
-                            <th style={{minWidth:"15rem", borderTopLeftRadius:"0rem"}} className="chamados_table_header">Cliente</th>
+                            <th style={{minWidth:"25rem", borderRadius:"0rem"}} className="chamados_table_header">Nome</th>
+                            <th style={{minWidth:"50rem", borderTopRightRadius:"0rem", borderTopLeftRadius:"0rem"}} className="chamados_table_header">Descricao</th>
+                            <th style={{minWidth:"15rem", borderTopRightRadius:"0rem", borderTopLeftRadius:"0rem"}} className="chamados_table_header">Cliente</th>
+                            <th style={{minWidth:"10rem", borderTopLeftRadius:"0rem"}} className="chamados_table_header">Criado em</th>
                         </tr>
                         {chamados_table}
                     </table>

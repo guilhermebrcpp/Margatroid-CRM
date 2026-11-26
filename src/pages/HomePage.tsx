@@ -142,10 +142,10 @@ function HomePage(){
             <ContactsProvider>
                 <DashBoard></DashBoard>
                 <div style={{overflow:"auto", height:"100vh", padding:"2rem", paddingTop:"1rem"}}>
-                    <div style={{display:"flex"}}>
+                    <div style={{display:"flex", marginBottom:"1rem"}}>
                         <div>
                             <h3>Dashboard</h3>
-                            <p>Bem vindo à dashboard</p>
+                            <p>Bem vindo à Dashboard, onde você encontra uma visão geral do seu negócio, com gráficos, métricas e informações essenciais em um só lugar.</p>
                         </div>
                         <div style={{marginLeft:"auto", display:"flex"}}>
                             <div style={{display:"flex", alignItems:"center"}}>
@@ -170,62 +170,10 @@ function HomePage(){
                                         {projects_table}
                                     </tr>
                                 </table>
-                                {/*
-                                <div style={{display:"flex", justifyContent:"flex-start"}}>
-                                    <div style={{display:"inline-block"}}>
-                                        <p style={{backgroundColor: "rgb(124, 154, 202)", padding:"0.5rem", paddingRight:"8rem", marginRight:"1px"}}>Projeto</p>
-                                        <p style={{paddingLeft:"0.5rem"}}>Portal Corporativo</p>
-                                        <p style={{paddingLeft:"0.5rem"}}>Sistema de Gestão</p>
-                                        <p style={{paddingLeft:"0.5rem"}}>Segurança de Rede</p>
-                                        <p style={{paddingLeft:"0.5rem"}}>Loja Virtual</p>
-                                        <p style={{paddingLeft:"0.5rem"}}>Gestão de Estoque</p>
-                                    </div>
-                                    <div style={{display:"inline-block"}}>
-                                        <p style={{backgroundColor: "rgb(124, 154, 202)", padding:"0.5rem", paddingRight:"6rem", marginRight:"1px"}}>Cliente</p>
-                                        <p style={{paddingLeft:"0.5rem"}}>NovaTech</p>
-                                        <p style={{paddingLeft:"0.5rem"}}>Alpha Solutions</p>
-                                        <p style={{paddingLeft:"0.5rem"}}>CKMT Corp.</p>
-                                        <p style={{paddingLeft:"0.5rem"}}>Orion Commerce</p>
-                                        <p style={{paddingLeft:"0.5rem"}}>BluePeak</p>
-                                    </div>
-                                    <div style={{display:"inline-block"}}>
-                                        <p style={{backgroundColor: "rgb(124, 154, 202)", padding:"0.5rem", paddingRight:"8rem", marginRight:"1px"}}>Tipo</p>
-                                        <p style={{paddingLeft:"0.5rem"}}>Website</p>
-                                        <p style={{paddingLeft:"0.5rem"}}>Sistema de Gestão</p>
-                                        <p style={{paddingLeft:"0.5rem"}}>Segurança</p>
-                                        <p style={{paddingLeft:"0.5rem"}}>Website</p>
-                                        <p style={{paddingLeft:"0.5rem"}}>Sistema de Gestão</p>
-                                    </div>
-                                    <div style={{display:"inline-block"}}>
-                                        <p style={{backgroundColor: "rgb(124, 154, 202)", padding:"0.5rem", paddingRight:"2rem", marginRight:"1px"}}>Progresso</p>
-                                        <p style={{color:"green", paddingLeft:"0.5rem"}}>15%</p>
-                                        <p style={{color:"green", paddingLeft:"0.5rem"}}>92%</p>
-                                        <p style={{color:"green", paddingLeft:"0.5rem"}}>52%</p>
-                                        <p style={{color:"green", paddingLeft:"0.5rem"}}>66%</p>
-                                        <p style={{color:"green", paddingLeft:"0.5rem"}}>67%</p>
-                                    </div>
-                                    <div style={{display:"inline-block"}}>
-                                        <p style={{backgroundColor: "rgb(124, 154, 202)", padding:"0.5rem", paddingRight:"6rem", marginRight:"1px"}}>Prazo</p>
-                                        <p style={{paddingLeft:"0.5rem"}}>12/10/2026</p>
-                                        <p style={{paddingLeft:"0.5rem"}}>18/10/2026</p>
-                                        <p style={{paddingLeft:"0.5rem"}}>08/10/2026</p>
-                                        <p style={{paddingLeft:"0.5rem"}}>02/11/2026</p>
-                                        <p style={{paddingLeft:"0.5rem"}}>15/11/2026</p>
-                                    </div>
-                                    <div style={{display:"inline-block"}}>
-                                        <p style={{backgroundColor: "rgb(124, 154, 202)", padding:"0.5rem", paddingRight:"6rem"}}>Status</p>
-                                        <p style={{paddingLeft:"0.5rem"}}>Em andamento</p>
-                                        <p style={{paddingLeft:"0.5rem"}}>Em andamento</p>
-                                        <p style={{paddingLeft:"0.5rem"}}>Pausado</p>
-                                        <p style={{paddingLeft:"0.5rem"}}>Planejamento</p>
-                                        <p style={{paddingLeft:"0.5rem"}}>Não iniciado</p>
-                                    </div>
-                                </div>
-                                */}
                             </div>
                         </div>
                         <div className="col-4">
-                            <div style={{border: "1px solid black", borderRadius:"0.5rem", padding:"1rem"}}>
+                            <div style={{border: "1px solid grey", borderRadius:"0.5rem", padding:"1rem" , boxShadow:"4px 4px 10px grey"}}>
                                 <h3 style={{textAlign:"left"}}>Tipos de Projeto</h3>
                                 <div style={{width:"25rem", height:"15rem", margin:"0 auto"}}>
                                     <Pie data={data} options={{maintainAspectRatio: false, plugins: { legend: { position: 'right' }}}}></Pie>
